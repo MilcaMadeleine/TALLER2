@@ -5,14 +5,6 @@ public class Usuario {
     private int edad;
 
     public Usuario(String nombre, int edad) {
-        // Validar entrada
-        if (nombre == null || nombre.isEmpty()) {
-            throw new IllegalArgumentException("El nombre no puede ser nulo o vacío");
-        }
-        if (edad <= 0) {
-            throw new IllegalArgumentException("La edad debe ser un valor positivo");
-        }
-
         this.nombre = nombre;
         this.edad = edad;
     }
