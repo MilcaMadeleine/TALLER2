@@ -29,7 +29,12 @@ public class Profesor extends Usuario {
         }
     }
 
-    // Método único en Profesor
+    // Método único en Profesor AsignarCalificacion
+
+    // El método asignarCalificacion en la clase Profesor tiene como objetivo actualizar las notas del alumno con las nuevas notas proporcionadas por el profesor. Este método recibe dos parámetros:
+    //alumno: Un objeto de la clase Alumno que representa al alumno al que se le asignarán las nuevas notas.
+    //nuevasNotas: Un array de tipo double que contiene las nuevas notas del alumno.
+
     public String asignarCalificacion(Alumno alumno, double[] nuevasNotas) {
       alumno.setNotas(nuevasNotas);
         return "Calificaciones Asignadas.";
