@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
 
                 // Crear un alumno con nombre, edad y notas
-                double[] notas = {6.5, 6.0, 5.5};
+                double[] notas = {9.5, 10.0, 8.5};
                 Alumno alumno = new Alumno("George", 20, notas);
 
                 // Crear un profesor con nombre, edad y faltas

@@ -7,6 +7,16 @@ public class Alumno extends Usuario {
         super(nombre, edad);
         this.notas = notas;
     }
+// Getter y Setters
+
+
+    public double[] getNotas() {
+        return notas;
+    }
+
+    public void setNotas(double[] notas) {
+        this.notas = notas;
+    }
 
     public double calcularPromedio() {
         double suma = 0;
@@ -16,13 +26,21 @@ public class Alumno extends Usuario {
         return suma / notas.length;
     }
 
+    // Método único en Alumno
+    public String obtenerEstadoAcademico() {
+        return estaAprobado() ? "Aprobado" : "Reprobado";
+    }
+
     public boolean estaAprobado() {
         return calcularPromedio() >= 7;
     }
 
-    // Método único en Alumno
-    public String obtenerEstadoAcademico() {
-        return estaAprobado() ? "Aprobado" : "Reprobado";
+    // Se redefinen el método mostrando información específica del alumno
+    @Override
+    protected void mostrarInformacion() {
+        super.mostrarInformacion(); // Llamada al método de la clase padre
+        System.out.println("Promedio: " + calcularPromedio());
+        System.out.println("Estado académico: " + obtenerEstadoAcademico());
+    }
 }
 
-}

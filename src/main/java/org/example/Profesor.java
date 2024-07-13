@@ -8,21 +8,36 @@ public class Profesor extends Usuario {
         this.faltas = faltas;
     }
 
+    public void setFaltas(int faltas) {
+        this.faltas = faltas;
+    }
+
     public int getFaltas() {
         return faltas;
     }
 
-    public String verificarFaltas() {
+    protected String verificarFaltas() {
+        int faltasRestantes = 3 - faltas;
         if (faltas > 3) {
-            return "Debe justificar las faltas enviando un correo.";
+            return "Ha superado el límite de faltas. Debe justificar las faltas enviando un correo.";
+        } else if (faltasRestantes == 1) {
+            return "Le queda una falta para llegar al límite.";
+        } else if (faltasRestantes > 1) {
+            return "Le quedan " + faltasRestantes + " faltas para llegar al límite.";
         } else {
             return "Faltas dentro del límite permitido.";
         }
     }
+
     // Método único en Profesor
     public String asignarCalificacion(Alumno alumno, double[] nuevasNotas) {
-        alumno = new Alumno(alumno.getNombre(), alumno.getEdad(), nuevasNotas);
+      alumno.setNotas(nuevasNotas);
         return "Calificaciones Asignadas.";
-}
+    }
 
+    @Override
+    protected void mostrarInformacion() {
+        super.mostrarInformacion(); // Llama al método de la clase base
+        System.out.println("Faltas: " + faltas);
+    }
 }
